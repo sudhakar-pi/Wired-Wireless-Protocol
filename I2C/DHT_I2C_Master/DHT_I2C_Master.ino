@@ -1,9 +1,8 @@
 #include <SimpleDHT.h>
 #include<Wire.h>
 int pinDHT11 =A0;
-int c,d;
+int c,d,l;
 String s;
-int l;
 int data[]={0,0};
 SimpleDHT11 dht11(pinDHT11);
 void setup()
@@ -16,8 +15,6 @@ void temp()
 {
   Serial.println("=================================");
   Serial.println("Sample DHT11...");
- 
-  // read without samples.
   byte temperature = 0;
   byte humidity = 0;
   int err = SimpleDHTErrSuccess;
@@ -31,14 +28,6 @@ void temp()
   Serial.print(humidity); Serial.println(" H");
  c = temperature;
  d = humidity;
- 
-
- 
- 
- 
- //delay(1500);
-  // DHT11 sampling rate is 1HZ.
- 
 }
 void loop()
 {
@@ -58,5 +47,4 @@ void loop()
   Serial.print(Buffer[0]);// sends one byte converted POT value to slave
   Wire.endTransmission();  
   delay(1000);
-  
-}
+  }
